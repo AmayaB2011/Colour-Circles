@@ -1,4 +1,3 @@
-// localStorage.clear();
 let circleAmounts = [1, 1, 1];
 let points = 0;
 let streekBonus = 0;
@@ -345,7 +344,6 @@ function createCircles() {
                         document.getElementById('endScore').innerText = points;
 
                         if (points > bestScore) {
-                            alert('New Best!');
                             localStorage.setItem("bestScore", points);
                         }
 
