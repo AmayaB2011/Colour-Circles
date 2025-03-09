@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plaster&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="images/favicon.png">
+    <title>Colour Circles</title>
+</head>
+<body>
+    <div id="game">
+        <div id="allBeams"></div>
+        <div id="topBar">
+            <div class="menuContainer">
+                <img src="images/menu.png" alt="menu" class="icon" id="menuIcon" onclick="showIcons()">
+                <div class="dropdownIcons" id="dropdown">
+                    <img src="images/home.png" alt="home" class="icon dropdownIcon" id="homeIcon" onclick="home()">
+                </div>
+            </div>
+            <p id="score">0</p>
+            <div class="trophyContainer">
+                <img src="images/trophy.png" alt="trophy" class="icon trophy">
+                <p class="highScore">0</p>
+            </div>
+            <p id="addedPoints">+0</p>
+        </div>
+        <div id="board">
+            <div class="tile" id="tile1"><div class="dot"></div></div>
+            <div class="tile" id="tile2"><div class="dot"></div></div>
+            <div class="tile" id="tile3"><div class="dot"></div></div>
+            <div class="part" id="part1"></div>
+            <div class="tile" id="tile4"><div class="dot"></div></div>
+            <div class="tile" id="tile5"><div class="dot"></div></div>
+            <div class="tile" id="tile6"><div class="dot"></div></div>
+            <div class="part" id="part2"></div>
+            <div class="tile" id="tile7"><div class="dot"></div></div>
+            <div class="tile" id="tile8"><div class="dot"></div></div>
+            <div class="tile" id="tile9"><div class="dot"></div></div>
+            <div class="part" id="part3"></div>
+        </div>
+    </div>
+    <div id="home">
+        <div id="left">
+            <h1 class="text top">Colour</h1>
+            <h1 class="text bottom">Circles</h1>
+        </div>
+        <div id="right">
+            <img src="images/play.png" alt="play" id="playButton" onclick="play()">
+            <div class="highScoreBox">
+                <img src="images/trophy.png" alt="trophy" class="icon trophy">
+                <p class="highScore homeHighScore">0</p>
+            </div>
+        </div>
+    </div>
+    <div id="gameOver">
+        <p id="gameOverText">Game Over</p>
+        <div class="container">
+            <div id="leftSide">
+                <img src="images/replay.png" alt="replay" id="replayButton" onclick="home()">
+            </div>
+            <div id="rightSide">
+                <p id="endScore">0</p>
+                <div class="highScoreBox">
+                    <img src="images/trophy.png" alt="trophy" class="icon trophy">
+                    <p class="highScore homeHighScore">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

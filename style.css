@@ -1,0 +1,295 @@
+body {
+    background-color: #40474A;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#board {
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin-top: 70px;
+}
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 166.67px;
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #717171;
+    position: absolute;
+}
+
+.part {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes grow {
+    0% {
+      transform: scale(0.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+
+.small, .medium, .large {
+    border-radius: 50%;
+    position: absolute;
+    animation: grow 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.small {
+    height: 30px;
+    width: 30px;
+}
+
+.medium {
+    height: 65px;
+    width: 65px;
+}
+
+.large {
+    height: 100px;
+    width: 100px;
+}
+
+#topBar {
+    width: 666.67px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    z-index: 20;
+    -webkit-user-drag: none;
+}
+
+.icon {
+    height: 70px;
+}
+
+#score, .highScore, #addedPoints {
+    font-family: "Lexend Giga", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+}
+
+#menuIcon {
+    order: 0;
+}
+
+.trophyContainer {
+    display: flex;
+    align-items: center;
+}
+
+#highScore, .trophy {
+    order: 2;
+}
+
+#score {
+    font-size: 60px;
+}
+
+.menuContainer {
+    position: relative;
+    display: inline-block;
+}
+  
+#menuIcon {
+    cursor: pointer;
+}
+  
+.dropdownIcons {
+    margin-top: 17px;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    flex-direction: column;
+    gap: 10px;
+}
+  
+#menuIcon:hover, #homeIcon:hover, #playButton:hover, #replayButton:hover {
+    transform: scale(1.1);
+}
+
+#beam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 60px;
+    filter: blur(4px);
+    opacity: 0;
+    transform: translate(-50%, -50%) scaleY(1);
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.beamContainer {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    z-index: 15;
+    left: 50%;
+}
+
+@keyframes shake {
+    0% {transform: translate(0.5px, 0.5px) rotate(1deg);}
+    25% {transform: translate(-0.5px, -0.5px) rotate(-1.5deg);}
+    50% {transform: translate(0.5px, -0.5px) rotate(1deg);}
+    75% {transform: translate(-0.5px, 0.5px) rotate(-1.5deg);}
+    100% {transform: translate(0.5px, -0.5px) rotate(1deg);}
+}
+
+.shake {
+    animation: shake 0.05s infinite alternate;
+}
+
+#allBeams {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@keyframes floatOut {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px));
+        opacity: 0;
+    }
+}
+
+.bubble {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    opacity: 1;
+    animation: floatOut 0.7s ease-out forwards;
+}
+
+@keyframes shrink {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+        display: none;
+    }
+}
+
+#addedPoints {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50% -50%);
+    font-weight: 600;
+    font-size: 30px;
+    width: 100%;
+    display: none;
+}
+
+#score, .trophyContainer, .menuContainer {
+    width: 110px;
+}
+
+.outsideCircle {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#playButton {
+    height: 150px;
+    width: auto;
+}
+
+.highScoreBox {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.homeHighScore, .text {
+    margin: 0;
+}
+
+#left, #right {
+    height: 235px;
+    font-family: "Plaster";
+    font-style: normal;
+    color: #fff;
+}
+
+.top {
+    font-size: 95px;
+}
+
+.bottom {
+    font-size: 85px;
+}
+
+#home, .container {
+    display: flex;
+    gap: 60px;
+}
+
+.container {
+    justify-content: center;
+}
+
+#replayButton {
+    height: 180px;
+}
+
+#endScore, #gameOverText {
+    font-family: "Lexend Giga", serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+    font-size: 70px;
+    margin: 0;
+    text-align: center;
+}
+
+#gameOverText {
+    font-size: 60px;
+    margin-bottom: 60px;
+}
+
+#gameOver {
+    animation: grow 0.2s ease-in-out;
+}
